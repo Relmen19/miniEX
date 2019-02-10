@@ -1,0 +1,108 @@
+
+* {
+    box-sizing: border-box;
+}
+html, body {
+	width: 100%;
+	// overflow-x: hidden;
+}
+body {
+	height:100%;
+	font-family: "Open Sans", "Serif";
+	font-weight: 300;
+	padding:0;
+	margin:0;
+	font-size:16px;
+	line-height: 28px;
+	color: #777; 
+	background: #fff;
+	overflow-x:hidden;
+	position: relative;
+}
+h1 { font-size: 3em; line-height:1.2em; margin:0 0 .3em; font-weight: 500;}
+h2 { font-size: 1.8em; line-height:1.4em; margin:0 0 .3em;  font-weight: 500;}
+h3 { font-size: 1.4em; line-height:1.4em;font-weight: 500; }
+h4 { font-size: 1.25em; line-height:1.4em;font-weight: 500;}
+h5 { font-size: 1.1em; line-height:1.4em; font-weight: 500;}
+h6 { font-size: 1em; line-height:1.2em; font-weight: 500;}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	text-decoration: none;
+}	 
+p { 
+	padding: 0 0 1em;
+	margin:0;
+}
+a {
+	color: #3eb0f7;
+	outline: 0;
+    font-weight: bold;
+    text-decoration: none;
+} 
+a:hover {
+	text-decoration: none;
+	color: #1f2222;
+	transition: all .8s ease;
+}
+
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    .catalog{
+        padding: 15px;
+        margin-bottom: 15px;
+        .catalog-products{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: baseline;
+            .catalog-product-item{
+                flex-basis: 400px;
+                margin: 15px;
+                text-align: center;
+                padding: 10px;
+                border: 2px solid;
+                img {
+                    width: auto;
+                    max-width: 370px;
+                    height: 400px;
+                    margin-bottom: 10px;
+                }
+                .name{
+                    font-size: 25px;
+                    color: black;
+                    line-height: 40px;
+                }
+                .price{
+                    font-size: 20px;
+                    color: black;
+                    line-height: 40px;
+                }
+            }
+        }
+        .catalog-pagination{
+            display: flex;
+            justify-content: center;
+            min-height: 46px;
+            align-items: center;
+            .catalog-pogination-item{
+                border: 1px black solid;
+                color: #1f2222;
+                cursor: pointer;
+                background-color: rgba(224, 218, 209, 0.822);
+                margin: 2px 15px;
+                font-size: 16px;
+                font-weight: 300;
+                line-height: 40px;
+                min-width: 40px;
+                text-align: center;
+                &.active {
+                    color: white;
+                    font-weight: 500;
+                    background-color: rgba(20, 17, 17, 0.801);
+                }
+            }
+        }
+    }
+}

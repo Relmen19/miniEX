@@ -1,0 +1,10 @@
+.header {
+  position: fixed;
+  background: gainsboro;
+  color: #777;
+  text-align: center;
+  padding: 5px;
+  min-height: 50px;
+  left: 3%;
+}
+/*# sourceMappingURL=style.css.map */
