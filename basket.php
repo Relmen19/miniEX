@@ -1,5 +1,5 @@
 <?php
-
+    
     session_start();
 
     if ( isset( $_SESSION['basket'] ) ){
@@ -7,11 +7,12 @@
         $link = mysqli_connect('localhost','root','','29092018_2_3project');
         mysqli_set_charset($link,'utf8');
         $card = [];
+        $countForBasket = [];
         foreach( $_SESSION['basket']['products'] as $product_item ){
             $product_id = $product_item['id'];
             
             $sql = " SELECT * FROM products WHERE id = {$product_id} ";
-            $result = mysqli_query($link, $sql);
+            $result = mysqli_query($link, $sql);     
             
             while( $row = mysqli_fetch_assoc($result) ){
                 $card[] = $row;
@@ -21,7 +22,7 @@
     }else{
         echo "<h2>Ваша корзина пуста</h2>";
     };
-
+    
 
 ?>
 
@@ -44,33 +45,27 @@
         </div>
         <div class="catalog-products">
             <?php
-            
-                foreach( $card as $item ){
-                    $img_src = 'default.jpeg';
-                    if  ($item['photo'] != '' ){
-                        $img_src = $item['photo'];
+                if ( isset( $card ) ){
+                    $m = -1;
+                    foreach( $card as $item ){
+                        $m += 1;
+                        $img_src = 'default.jpeg';
+                        if  ($item['photo'] != '' ){
+                            $img_src = $item['photo'];
+                        };
+                        echo "
+                        <div class='catalog-product-item'>
+                            <img src='/images/catalog/{$img_src}'>
+                            <div class='name'>{$item['name']} ({$_SESSION['basket']['products'][$m]['count']})</div>
+                            <div class='price'>{$item['price']} руб.</div>
+                        </div>
+                        ";
+                        
                     };
-                    echo "
-                    <div class='catalog-product-item'>
-                        <img src='/images/catalog/{$img_src}'>
-                        <div class='name'>{$item['name']}</div>
-                        <div class='price'>{$item['price']} руб.</div>
-                    </div>
-                    ";
-                };
-
+                }
             ?>
         </div>
     </div>
 </div>
-
-
-
-
-           
-      
-
-    
-
 </body>
 </html>

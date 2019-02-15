@@ -20,8 +20,8 @@
             </div>
         </div>
     </div>
-    
-    <script src="/js/catalog.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/catalog.js"></script>
+    
 </body>
 </html>

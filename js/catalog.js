@@ -12,18 +12,17 @@ let renderCatalog = (data) => {
         let img_src = 'default.jpeg';
         if (productItem.photo!=''){
             img_src = productItem.photo
-        };
+        }
+        
         divProductEl.innerHTML = `
             <img src='/images/catalog/${img_src}'>
             <div class='name'>${productItem.name}</div>
             <div class='price'>${productItem.price} руб.</div>
-            <button data-id='${productItem.id}'>Добавить в корзину</button>`
-        ;
-
+            <button data-id='${productItem.id}'>Добавить в корзину</button>
+            `;
         divProductEl.querySelector('button').addEventListener('click', function(){
             updateBasket(this.getAttribute('data-id'));
         });
-
         catalogProductsEl.append(divProductEl);
     });
 
